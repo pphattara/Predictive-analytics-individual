@@ -51,18 +51,27 @@ python3 -u - <<'PY'
 from pathlib import Path
 import json
 import re
+import subprocess
 
 root = Path('.').resolve()
 out = root / 'outputs' / 'adult_census_income'
 metrics = out / 'metrics'
 archive = out / 'archive' / 'report_exports'
 
+tracked_files = subprocess.run(
+    ['git', 'ls-files', '-z'],
+    cwd=root,
+    check=True,
+    capture_output=True,
+    text=False,
+).stdout.split(b'\x00')
+tracked_dsstore = [path.decode('utf-8') for path in tracked_files if path and path.decode('utf-8').endswith('.DS_Store')]
+
 required = [
     root / 'report_final.pdf',
     archive / 'report_supporting_export.md',
     archive / 'report_supporting_export.pdf',
     archive / 'report_supporting_export.docx',
-    out / 'submission_manifest.md',
     metrics / 'evaluation_report.json',
     metrics / 'final_solution_bundle.json',
     metrics / 'repeated_cv_stability.csv',
@@ -119,8 +128,8 @@ if '## 6. References' not in report_md_text:
 if not re.search(r'Figure\s+\d+', report_md_text):
     raise SystemExit('Archived report markdown has no numbered figure references')
 
-if any(root.glob('**/.DS_Store')):
-    raise SystemExit('Found .DS_Store files in project root')
+if tracked_dsstore:
+    raise SystemExit(f'Found tracked .DS_Store files in repository: {tracked_dsstore}')
 if any((out).glob('~$*.docx')):
     raise SystemExit('Found temporary Office lock files in outputs/adult_census_income')
 

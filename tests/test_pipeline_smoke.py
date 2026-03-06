@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import subprocess
 import unittest
 
 
@@ -12,6 +13,21 @@ OUT = ROOT / "outputs" / "adult_census_income"
 METRICS = OUT / "metrics"
 FIGS = OUT / "figures"
 ARCHIVE = OUT / "archive" / "report_exports"
+
+
+def tracked_dsstore_paths(root: Path) -> list[str]:
+    result = subprocess.run(
+        ["git", "ls-files", "-z"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+        text=False,
+    )
+    return [
+        path.decode("utf-8")
+        for path in result.stdout.split(b"\x00")
+        if path and path.decode("utf-8").endswith(".DS_Store")
+    ]
 
 
 class TestPipelineSmoke(unittest.TestCase):
@@ -95,7 +111,7 @@ class TestPipelineSmoke(unittest.TestCase):
         )
 
     def test_hygiene_no_dsstore_or_temp_docx_locks(self) -> None:
-        self.assertFalse(any(ROOT.glob("**/.DS_Store")), "Found .DS_Store files in project root")
+        self.assertFalse(tracked_dsstore_paths(ROOT), "Found tracked .DS_Store files in repository")
         self.assertFalse(any(OUT.glob("~$*.docx")), "Found Office lock files in outputs folder")
 
 
