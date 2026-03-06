@@ -100,6 +100,8 @@ Agent evidence outputs:
 - `outputs/adult_census_income/interaction_log_images/`
 - `outputs/adult_census_income/evidence/`
 
+Supporting report exports are archived under `outputs/adult_census_income/archive/report_exports/` and are not submission files.
+
 ## Reproducibility Notes
 
 - Fixed random seed (`42`).
