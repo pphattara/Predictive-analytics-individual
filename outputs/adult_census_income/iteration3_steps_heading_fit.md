@@ -66,3 +66,11 @@ This document starts **Iteration 3** by consolidating all Iteration 1 work under
 ## Iteration 3 Status
 - Step-heading fit of Iteration 1 outputs: **completed**.
 - Next immediate task: convert this structure into final submission prose with figure/table callouts and references.
+
+## Canonical Final Metric Snapshot
+- Threshold: **0.3600**
+- Test weighted F1: **0.8622**
+- Test PR-AUC: **0.8282**
+- Test ROC-AUC: **0.9259**
+- Test recall (`>50K`): **0.7840**
+- Test calibration error (ECE): **0.0139**

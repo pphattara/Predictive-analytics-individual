@@ -1,181 +1,711 @@
 %PDF-1.4
-%���� ReportLab Generated PDF document (opensource)
 1 0 obj
-<<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 8 0 R
->>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
->>
+<< /Type /Pages /Count 7 /Kids [ 4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R ] >>
 endobj
 3 0 obj
-<<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
->>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 4 0 obj
-<<
-/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
 endobj
 5 0 obj
-<<
-/Contents 15 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 2982 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+(PREDICTING ANNUAL INCOME WITH THE ADULT CENSUS DATASET) Tj
+0 -14 Td
+(MSIN0097 Predictive Analytics — Individual Coursework) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(1. Introduction) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(This project predicts whether an individual earns >50K per year using the Adult Census) Tj
+0 -14 Td
+(Income dataset. The intended stakeholder is a workforce policy or HR analytics team that) Tj
+0 -14 Td
+(needs priority ranking rather than a perfect deterministic rule. A binary classifier is) Tj
+0 -14 Td
+(appropriate because the operational decision is whether an individual likely belongs in a) Tj
+0 -14 Td
+(higher-income segment, not exact income estimation.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The dataset contains 32,561 records and 14 predictors \(Kohavi, 1996; Dua and Graff, 2019\).) Tj
+0 -14 Td
+(The target is imbalanced: 75.9% <=50K and 24.1% >50K \(Figure 1\), so raw accuracy is not a) Tj
+0 -14 Td
+(safe primary metric. Before any modelling, success criteria were fixed as:) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- weighted F1 >= 0.82) Tj
+0 -14 Td
+(- positive-class recall \(>50K\) >= 0.75) Tj
+0 -14 Td
+(- calibration quality suitable for threshold-based policy decisions) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The final model is a tuned HistGradientBoosting classifier with operating threshold 0.36.) Tj
+0 -14 Td
+(On the untouched test set, it achieves weighted F1 0.862, recall 0.784, PR-AUC 0.828,) Tj
+0 -14 Td
+(ROC-AUC 0.926, and calibration error \(ECE\) 0.014. Relative to the logistic baseline,) Tj
+0 -14 Td
+(this is a +0.041 absolute F1 gain, or approximately +5.0% relative improvement.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(This report follows the coursework six-step structure and documents both model evidence and) Tj
+0 -14 Td
+(agent-assisted decision verification.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2. Methodology) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2.1 EDA-driven design decisions) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(EDA was run to drive decisions, not just describe data.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Numeric distributions \(Figure 2\) show extreme right-skew in capital.gain and) Tj
+0 -14 Td
+(capital.loss with dominant zero mass and long positive tails. This motivated robust,) Tj
+0 -14 Td
+(leak-safe preprocessing and explicit outlier diagnostics.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Missingness is concentrated in occupation \(5.66%\), workclass \(5.64%\), and) Tj
+0 -14 Td
+(native.country \(1.79%\) \(Figure 3\). Figure 20 adds a mechanism classification map) Tj
+0 -14 Td
+(\(MCAR/MAR/MNAR heuristic labels\) and makes the caveat explicit: the labels are practical) Tj
+0 -14 Td
+(working assumptions, not proven causal mechanisms. The implication remains the same:) Tj
+0 -14 Td
+(row deletion is riskier than imputation because it removes signal and may amplify class/slice) Tj
+0 -14 Td
+(imbalance.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Leakage checks were made explicit. Figure 4 shows no numeric feature with absolute) Tj
+0 -14 Td
+ET
+endstream
 endobj
 6 0 obj
-<<
-/Contents 16 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
 endobj
 7 0 obj
-<<
-/Contents 17 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 3169 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+(point-biserial correlation near the 0.9 suspicion threshold. Figure 5 \(correlation heatmap\)) Tj
+0 -14 Td
+(highlights redundancy between education and education.num, later tested via ablation.) Tj
+0 -14 Td
+(Figure 6 confirms separation signal for features linked to household structure and capital,) Tj
+0 -14 Td
+(while Figures 7-8 show outlier concentration without a single dominant leakage-like feature.) Tj
+0 -14 Td
+(The IQR plot \(Figure 7\) indicates high rates for hours.per.week, but the Isolation Forest) Tj
+0 -14 Td
+(scatter \(Figure 8\) confirms these points are distributed rather than concentrated into a) Tj
+0 -14 Td
+(single pathological subgroup. That finding supported retaining outliers and handling them) Tj
+0 -14 Td
+(through robust preprocessing plus downstream threshold stress testing, rather than hard) Tj
+0 -14 Td
+(trimming rules that could disproportionately remove minority slices.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(To satisfy the visual-verification requirement, Figure 21 documents one explicit agent-plot) Tj
+0 -14 Td
+(correction: a raw-missing-count chart was replaced with normalized percentages because raw) Tj
+0 -14 Td
+(counts can mis-prioritize columns. This correction was retained as evidence of human review,) Tj
+0 -14 Td
+(not silently overwritten.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2.2 Data preparation and leakage discipline) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Data was split before preprocessing using stratified 70/15/15 with random_state=42.) Tj
+0 -14 Td
+(All transformers were fit only on training data. The preprocessing pipeline uses:) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- numeric: median imputation + RobustScaler) Tj
+0 -14 Td
+(- categorical: most-frequent imputation + one-hot encoding \(handle_unknown='ignore'\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Post-transform assertions verified:) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- no NaN values in train/val/test transformed matrices) Tj
+0 -14 Td
+(- consistent feature dimensions across all splits) Tj
+0 -14 Td
+(- preserved class balance after stratification) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(This split-first discipline, together with pipeline encapsulation, prevents target leakage and) Tj
+0 -14 Td
+(keeps CV/test estimates trustworthy.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2.3 Model shortlist, ablation, and tuning protocol) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The shortlist intentionally spans linear, tree-ensemble, and neural families:) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- Logistic Regression \(interpretable linear floor\)) Tj
+0 -14 Td
+(- Random Forest) Tj
+0 -14 Td
+(- HistGradientBoosting) Tj
+0 -14 Td
+(- MLPClassifier \(64x32, early stopping\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(A majority baseline \(DummyClassifier\) establishes the minimum bar.) Tj
+0 -14 Td
+(All candidates were evaluated with StratifiedKFold\(n_splits=5, shuffle=True,) Tj
+0 -14 Td
+(random_state=42\) and consistent scoring \(f1_weighted, PR-AUC, ROC-AUC,) Tj
+0 -14 Td
+(positive recall\).) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Ablation design used one-change-at-a-time variants on the winning family:) Tj
+0 -14 Td
+(class-weight removal, scaler swap, fnlwgt drop, education-field redundancy checks,) Tj
+0 -14 Td
+(and capital-feature removal.) Tj
+0 -14 Td
+ET
+endstream
 endobj
 8 0 obj
-<<
-/BaseFont /ZapfDingbats /Name /F4 /Subtype /Type1 /Type /Font
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<<
-/Contents 18 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 2743 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+() Tj
+0 -14 Td
+(Hyperparameter tuning used RandomizedSearchCV on HistGradientBoosting) Tj
+0 -14 Td
+(\(20 draws, 3-fold CV\), with explicit search space and persisted best parameters.) Tj
+0 -14 Td
+(This is not exhaustive global optimization, but it is principled and reproducible.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2.4 Fine-tuning and robustness checks) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Threshold tuning was performed on validation data only under recall constraint) Tj
+0 -14 Td
+(\(recall_positive >= 0.75\), then frozen at 0.36.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Iteration 5 added two robustness upgrades:) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- Figure 22: MLP training dynamics \(loss/validation trajectories\) to show convergence) Tj
+0 -14 Td
+(behaviour for the modern baseline) Tj
+0 -14 Td
+(- Figure 23 + repeated_cv_stability.csv: repeated CV stability check using) Tj
+0 -14 Td
+(RepeatedStratifiedKFold\(5x3\) on the selected pipeline) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The repeated-CV mean remains close to the base CV mean, supporting that model ranking was) Tj
+0 -14 Td
+(not a single-split artifact.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3. Results) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3.1 Cross-validated model comparison) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Table 1. Five-fold stratified CV results across shortlisted families) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(| Model | CV F1 \(mean ± std\) | AUC-PR | ROC-AUC | Recall+ |) Tj
+0 -14 Td
+(|------------------------|--------------------|--------|---------|---------|) Tj
+0 -14 Td
+(| Majority baseline | 0.655 — | 0.241 | 0.500 | 0.000 |) Tj
+0 -14 Td
+(| Logistic Regression | 0.821 ± 0.005 | 0.766 | 0.907 | 0.851 |) Tj
+0 -14 Td
+(| Random Forest | 0.851 ± 0.008 | 0.766 | 0.904 | 0.618 |) Tj
+0 -14 Td
+(| MLP \(64x32\) | 0.851 ± 0.002 | 0.778 | 0.911 | 0.629 |) Tj
+0 -14 Td
+(| HGB \(untuned\) | 0.869 ± 0.003 | 0.827 | 0.927 | 0.657 |) Tj
+0 -14 Td
+(| HGB \(tuned\) | 0.869 ± 0.003 |0.830|0.929| 0.661 |) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The tuned HGB remains first on weighted F1 and ranking metrics \(Figure 9\). Improvement over) Tj
+0 -14 Td
+(untuned HGB is intentionally reported as small \(about +0.0007 F1 in the saved run\):) Tj
+0 -14 Td
+(tuning was justified as robustness and reproducibility evidence, not a dramatic uplift claim.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3.2 Ablation evidence) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Table 2. One-change-at-a-time ablations on HistGradientBoosting) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(| Variant | CV F1 \(mean ± std\) | Change vs reference |) Tj
+0 -14 Td
+(|-------------------------|--------------------|---------------------|) Tj
+0 -14 Td
+(| drop_education_text | 0.8693 ± 0.0028 | +0.06pp |) Tj
+0 -14 Td
+(| reference | 0.8688 ± 0.0028 | — |) Tj
+0 -14 Td
+ET
+endstream
 endobj
 10 0 obj
-<<
-/Contents 19 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<<
-/Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Length 3067 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+(| no_class_weight | 0.8688 ± 0.0028 | 0.00pp |) Tj
+0 -14 Td
+(| standard_scaler | 0.8688 ± 0.0028 | 0.00pp |) Tj
+0 -14 Td
+(| drop_fnlwgt | 0.8681 ± 0.0031 | −0.07pp |) Tj
+0 -14 Td
+(| drop_education_num | 0.8681 ± 0.0025 | −0.07pp |) Tj
+0 -14 Td
+(| no_capital_features | 0.8381 ± 0.0032| −3.08pp |) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The largest movement is capital-feature removal \(Figure 10\), confirming that sparse capital) Tj
+0 -14 Td
+(signals are central to discrimination despite heavy skew and zero inflation.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3.3 Final test performance \(single-touch\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Final evaluation was performed once on held-out test data after model and threshold freeze.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(| Metric | Value | Criterion |) Tj
+0 -14 Td
+(|-----------------------|-------|-----------|) Tj
+0 -14 Td
+(| Weighted F1 | 0.862 | >= 0.82 ✅ |) Tj
+0 -14 Td
+(| PR-AUC | 0.828 | — |) Tj
+0 -14 Td
+(| ROC-AUC | 0.926 | — |) Tj
+0 -14 Td
+(| Recall \(>50K\) | 0.784 | >= 0.75 ✅ |) Tj
+0 -14 Td
+(| Precision \(>50K\) | 0.679 | — |) Tj
+0 -14 Td
+(| Calibration \(ECE\) | 0.014 | Required ✅ |) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Figure 11 \(learning curve\) shows validation F1 flattening as sample size grows, which) Tj
+0 -14 Td
+(suggests limited benefit from additional data under current feature set unless data quality) Tj
+0 -14 Td
+(changes. Figure 12 \(normalized confusion matrix\) makes the error trade-off explicit at the) Tj
+0 -14 Td
+(chosen threshold. Figure 13 \(PR curve\) shows strong positive-class ranking where precision) Tj
+0 -14 Td
+(must be controlled under intervention budgets. Figure 14 \(ROC curve\) confirms high global) Tj
+0 -14 Td
+(discrimination performance, which matters because prevalence can shift across cohorts.) Tj
+0 -14 Td
+(Figure 15 confirms that predicted probabilities remain close to observed frequencies, so) Tj
+0 -14 Td
+(score-based triage rules are more defensible than hard class labels alone.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Taken together, Figures 11-15 justify the final operating decision: the model is not) Tj
+0 -14 Td
+(selected only because of F1, but because it jointly satisfies ranking quality, calibration,) Tj
+0 -14 Td
+(and recall constraints under a clearly stated threshold policy.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3.4 Error and failure-mode analysis) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Error is heterogeneous by subgroup. Figure 16 shows low recall in Own-child and younger) Tj
+0 -14 Td
+(age-band slices. Figure 17 shows elevated error rates for selected relationship groups.) Tj
+0 -14 Td
+(Figure 18 confirms model dependence on marital.status and capital features, creating a) Tj
+0 -14 Td
+(plausible fairness and transferability risk.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Threshold sensitivity \(Figure 19\) shows that ±0.05 around 0.36 shifts recall by) Tj
+0 -14 Td
+(approximately 4-5 percentage points, so threshold is an operational control, not a static) Tj
+0 -14 Td
+(constant.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4. Discussion) Tj
+0 -14 Td
+ET
+endstream
 endobj
 12 0 obj
-<<
-/PageMode /UseNone /Pages 14 0 R /Type /Catalog
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
 endobj
 13 0 obj
-<<
-/Author (UCL Student) /CreationDate (D:20260303183944+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260303183944+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (\(unspecified\)) /Title (Predicting Annual Income \204 MSIN0097 Individual Coursework) /Trapped /False
->>
+<< /Length 3159 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+() Tj
+0 -14 Td
+(4.1 What is strong) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The pipeline is statistically disciplined \(split-first, no leakage, test single-touch\),) Tj
+0 -14 Td
+(methodologically broad \(baseline + multiple families + ablations\), and operationally grounded) Tj
+0 -14 Td
+(\(calibration + threshold policy + subgroup diagnostics\). This combination supports decision) Tj
+0 -14 Td
+(support use better than leaderboard-only tuning.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4.2 Limitations) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(1. Dataset age and shift risk: Adult Census reflects 1994 distributions. Workforce) Tj
+0 -14 Td
+(composition and income structure have changed, so external validity is limited.) Tj
+0 -14 Td
+(2. Subgroup recall disparity: some slices remain under-recalled, which is material for) Tj
+0 -14 Td
+(intervention or triage use cases.) Tj
+0 -14 Td
+(3. Feature semantics risk: high-importance household-structure features may encode) Tj
+0 -14 Td
+(social structure effects that do not transfer safely across contexts.) Tj
+0 -14 Td
+(4. Tuning uplift magnitude: hyperparameter tuning improved stability more than headline) Tj
+0 -14 Td
+(performance; this is honest but limits raw performance gains.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4.3 Verification strategies: what worked, what failed, why) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(This section captures metacognitive verification rather than a task log.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Worked well \(accepted\):) Tj
+0 -14 Td
+(- CV scaffold and fixed-seed protocol suggestions were fast to validate and low-risk.) Tj
+0 -14 Td
+(Re-running CV reproduced metric bands closely, so these were accepted with minimal friction.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Worked with modification \(modified\):) Tj
+0 -14 Td
+(- Missingness handling: an agent suggestion to drop missing rows was modified after checking) Tj
+0 -14 Td
+(that deletion would remove ~5.6% of records and distort class balance.) Tj
+0 -14 Td
+(- Interpretability tooling: SHAP-first suggestion was replaced by permutation importance to) Tj
+0 -14 Td
+(stay within dependency constraints while preserving global feature diagnostics.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Failed and required rejection \(rejected\):) Tj
+0 -14 Td
+(- Accuracy-first ranking on imbalanced data was rejected because it obscured positive-class) Tj
+0 -14 Td
+(recovery trade-offs.) Tj
+0 -14 Td
+(- Static-threshold recommendation without stress testing was rejected; threshold sweep evidence) Tj
+0 -14 Td
+(showed material policy sensitivity.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(The key pattern: agent output is efficient for scaffolding and boilerplate, but analytical) Tj
+0 -14 Td
+(claims require explicit empirical verification before adoption.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4.4 Next steps) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(- Add subgroup-aware monitoring with hard governance floors \(for example, minimum recall) Tj
+0 -14 Td
+(thresholds for slices above a minimum sample size\).) Tj
+0 -14 Td
+(- Recalibrate and re-threshold on newer data snapshots to mitigate temporal shift.) Tj
+0 -14 Td
+(- Evaluate fairness-constrained post-processing and compare precision cost explicitly.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+ET
+endstream
 endobj
 14 0 obj
-<<
-/Count 6 /Kids [ 5 0 R 6 0 R 7 0 R 9 0 R 10 0 R 11 0 R ] /Type /Pages
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 15 0 R >>
 endobj
 15 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2247
->>
+<< /Length 2755 >>
 stream
-GatU4mrR7'&cJlI@R&?uEed!NM]eZd4/9l?P,?O3QDXVTREbgmP%OkVp?k2#rTj@S!)g0C,qpf_6ja(bhX8++qb@`Wpl>:@W[7N0OhQ)W;&%L>R\DW0l1(tLp@7G*=4)8*('dtS(D3d871^2:J`lNB&;Bm(U?C,j9T#4]jpGlnkA@G2M_/Cq1>X2bH%RLUMD3:rI/[6sp"t_0<TR2hTt@Jn770:_Q#7lgPhVAU9"M)#`mMKdCiAQtE5G6ARN=]AiudOJo@3j?n+cmi!7L'dJ2kHuMS=K:14Wm@!',pk*,ttt.L:qp3<epOiQ%S.YZT:%P!'q3U,b87=aGtc'dB[.?I^%N^$^lF#AlYq6hl&BhZtCNnEq:5Oq,"b03:G7_p=,,Y<)\W95.E0H!^!'%6_A2?rj(i$Vi6fE\;+dF-:N<Y+kto3hu!^):71g\<iu4<gT;2ro4giKCjrFl+as5Wnn"/8I\(e)I]aOX%Mm,,Wej]dLt_fX\C*UV]/VV8T7P.ZZoEt%j/kad9:RZC1Ur;-9tnW1EigE8[Fa("6;$E_UO*c@YLXZ>=X\L,b$#'.V1!Zapm]W>AYZX@6/9=&+c97alaU*`G%)Vo#910=GB$`@d^>[(eb2j$"jJ<:Gf0@*=4L,;-\cqBr"niU':9g%KOmdXnYAM$L^T^78:1+ou;gD<`Of#qf_-Y2?@rfcU83hD5BO]"fR&oaKC[b,rDJG-d5&c1'R<[<L.etIfrWi)50kr6)Ek"3F5+qOdm``pJEU8CaSFE%7dD!#>q:pl_!fMm+$]^U<('F,[N%La^DS9[9`:>CFNML;CoiODGOR1[CcRC-3T]A2YmBm26?J`p*g/e]smWH^HQT.oU;8dp:HkRN_AKLPY,(tK1kg+!%q/VU>+'b7d^g8H;8]V0#>b((^%KH^n&d<oM;#AFC[hPCUdSOC)Tsl#$_c6>NS,C7s7&=OC8H:ZE(f!@F$*f!aSX#d7q='/_$qpJ3':V\f^fq,?s5DJj?-NgfD&M4sAIBU(QTEXqirhX]tEpkK#]:klGX>W7iFoZJ3H)MUTNOc=%tQ35/Q#`@Fc:o/D<0M[:Q0k4[m@MXJZ:&Z0!=,JBs"LmGL^,'^"DkWt)t?3g,L=-Z0W.\e[BPb<ZI7r.c*85Vtf0KB1&EpbJqFY+PEl7M^0Rk8kS\EB]qAhTsF_B=mU(pm=`Ze]jpjH;7TB.UJp/q!!CGu^;Ilq`hU4UYOK7B%25a"Tj&5tabh<]B\2#mLVhB[%H+D92AjY5b/rqqd-4Tln)uR,M<JkA`0VF>UI<7C?-9cT^NdDL^Y4AFX@BD'^CaOmF@[KqAom-j2,Sn.cJk5oM[!B;G9N$;Ou5P0Xkn7W4ABb]Y3i8?`ml:+ur%\Lkf$@Pl)ToWV>7&Zt\(QqBN5#Y&8d?%XSOb#6S\+@q[?mHP>o)=Q&Ig\\H$B,L0i(&WnI"O9aRcX`GN*^fpV&"hcVnF[$m?ha&05jp!]>cgl%j+LgWpp7Y8nM2][r0kPm)ZA7D(MBc6[r:\PhAEK%UGq3QS1pl$4M=#L2'p4jFMQ6dboF0=RN3FZ0GmC0W_I]/aEAE>\-eMXq4<-rD$?DcJ:?oj#^8-,D&1Gc>GH%oJq`aXL[tM&_*8#6&.RR@?_"q@-c9tD@mA';g]\C6VjqE%hrB?b%Mp%#mHk&#BfHcI&I#4:I`l1<,d2FmSn9s.Ijb1d)*X$Sfoc7YNMaC&HFB^Mkhg'\]FtXMUO"%P3J!B6Pg@;&YTN"+L\)(kZbi>Fm:cK'%D4f[k^tL7lQ./UD"q-k*ur/9O`%fiMJT]NWg]TYJ3+E"8-'I=@<H4lJ0SsbS5ee$+2Hl?0RNlp00>i]K=:-Tmf2f>1%H<&N*O8H^p-RP8C;0ij$>?Mb-\85/EM]')aW#FE1m_FNHWd<#n.\q0"cPogKAB5Oric:OC116!Uk&HlPU!=nuQJ2YZ&/B=>:<X,dN-"<sH?+CXFW/ZYjuC`8V!R]*ZQA\IJ7=@=iZlNnr_u&e[_:dKt:94GgOB/-EJ`qV?uHb94u9TGRT7,_K+g(K5g'dO^Bp\S]png'*c0!Uki(+VS\T"1lB@BB(;OZQGs;4%C@m8[l0q6*RG\dJlDcgill7S7.L4OppmOSr$/X.hmrcqF9J?ViQ4W"!j8Ne"='%/)7_`4="<Ff[X(&e3;j+)<kD9XK:2$_s-af5QtWjS_-;(=VaIu1Hj%np4l*Z0\mX-&7flheJ9V%Ri9/j6KZ"49iq>uiM>N3~>endstream
+BT
+/F1 11 Tf
+50 742 Td
+(4.5 Operational guardrails before deployment) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(If this model were transitioned beyond coursework, three guardrails would be mandatory.) Tj
+0 -14 Td
+(First, a monitoring dashboard should track weighted F1, recall \(>50K\), and ECE at a fixed) Tj
+0 -14 Td
+(cadence, with explicit alert thresholds and a documented owner for intervention. Second,) Tj
+0 -14 Td
+(subgroup monitoring should use both minimum sample-size rules and confidence intervals to) Tj
+0 -14 Td
+(avoid over-reacting to noise in very small slices. Third, any threshold revision should be) Tj
+0 -14 Td
+(logged as a policy change with pre/post impact simulation, not performed ad hoc by) Tj
+0 -14 Td
+(individual analysts. These controls are simple but materially reduce the risk that a stable) Tj
+0 -14 Td
+(offline model drifts into unsafe behavior in live use.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(5. Model Card) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Model: HistGradientBoosting Classifier \(tuned\) + threshold policy 0.36) Tj
+0 -14 Td
+(Intended use: decision support for workforce/HR prioritization) Tj
+0 -14 Td
+(Not for: fully automated high-stakes decisions \(hiring, credit, benefits\)) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Data provenance: UCI Adult Census Income, 32,561 rows, 14 features, historical US census) Tj
+0 -14 Td
+(sample \(Kohavi, 1996; Dua and Graff, 2019\).) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Evaluation summary \(test set\):) Tj
+0 -14 Td
+(- F1 weighted: 0.862) Tj
+0 -14 Td
+(- PR-AUC: 0.828) Tj
+0 -14 Td
+(- ROC-AUC: 0.926) Tj
+0 -14 Td
+(- Recall \(>50K\): 0.784) Tj
+0 -14 Td
+(- Calibration error \(ECE\): 0.014) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Caveats:) Tj
+0 -14 Td
+(- Under-recall in specific age/relationship slices.) Tj
+0 -14 Td
+(- Threshold sensitivity around operational point.) Tj
+0 -14 Td
+(- Temporal transferability risk due to dataset vintage.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(6. References) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Bergstra, J. and Bengio, Y. \(2012\) 'Random search for hyper-parameter optimization',) Tj
+0 -14 Td
+(Journal of Machine Learning Research, 13\(10\), pp. 281-305.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Dua, D. and Graff, C. \(2019\) UCI Machine Learning Repository. Irvine, CA: University of) Tj
+0 -14 Td
+(California, School of Information and Computer Science. Available at:) Tj
+0 -14 Td
+(https://archive.ics.uci.edu \(Accessed: 4 March 2026\).) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Kohavi, R. \(1996\) 'Scaling up the accuracy of Naive-Bayes classifiers: A decision-tree) Tj
+0 -14 Td
+(hybrid'. In: *Proceedings of the Second International Conference on Knowledge Discovery and) Tj
+0 -14 Td
+(Data Mining \(KDD-96\)*. Portland, OR: AAAI Press, pp. 202-207.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+ET
+endstream
 endobj
 16 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2107
->>
-stream
-Gatm<?#SIW&:Dg-fU&>S_,`,_.rNai1qd-%[(S<douTHb9=2qo-2L0TNr/-\QBLV\-n[QS8<CWQ.*aGXB4hrX%mP(/S*!+WVf[A.;k23V61H'9d.AR]5!A`),d-SU-.-Ch9O\p$L/C&N9s>+oHf;89T&9qFiLsAF<tFXt&*1d%%\qDZ1(1BC2)]M$MMs=P]Wn(+8lD[CF5\(=k+u.VTNRG:8JSTD)cKpHS/^Y'$S26+A`:sKqDV,uA#*K$o/!b+IS7$t?^G(%'O0[#!$TEfTaFdN];Eq:>-#'\WfU'[(eNKq`Y=9W;LB9R8X]3+%>`Gt5gj8Bf4nGl8V>\6V5@?CS'-`t6UdD9X&<+liVA4-=KA6m[8DYHcBZ:ITqB@gRS6oE`XuFSX8I["cEI,+n!GDrIXU>">3\Ni&kh<><QssL/uA#u/WoKJRF9R<Reto)1D+Vq*cAMTi42rKLi>Io);ub96Y'P8TVG[=UgI_F)F-\MKg>4H2^BBFe8b``m(piG"&=3N_$pZE'Fc/qgK'u7fBMg[]L6crCY!:XQa:LZZcGOcSBH6iKY#BcLu&1Pf])"fdWA"QNFlf45kj"KifVkRE-S'$LUo#erCFmgI)TXTluF'GBo43l(DN_3jBC1c]lcKJ+=msea)0!8TH1<A;?ZXu\CT*jHV&e"5k[U.EnXfurI]L;(ULH(5('nPU2)&,!PNU$_]<'jXk(DH@rU*nOfjf6A/pS9d)&mg6$ur@r6\Qfn#tu.1Gt;tNTEPMecRrbZrerc^*!#S1]T[R>C[5g$+%J/6CZDSYm)*'9$=d<+9o'+Kh!2".PVSZOq.N"4<upC\A/:$!:uk#"Wl2&gFipg\%usCRR\'QPMon9L]@<`1-jlK\pqKK5G:&cYlB]J:sN$$%\@S'%b:VIYAO*L'40$$#NXH>GoHG&iurk;RF"[S2aX.C(4eH=;Gb&YQ*aRc(9:rj;"DqB*F,tR>)VR5r#=s[Ho";S1malM`4"n'O#"`VM)?K?=[\V;;Y=>k0%uF>kUHl$'G#7eNCM\'nuuumefY7pW'o!t]u7-;hO8`Sr*:d=ht5.gqkrSlFi(9\do[(UD9MX0Z,-gjm`Kd;7;=T43BLLIOI"eHid5+B`LE3m'HG"`:]qq41f-_)NbE,<L=!t+)ShBf<pi^S*T4oM!?8lOE3mIM0HlMDi<!h.RV\)P?ju0Z:t\Gt!`!kdLZ\^4-Z'5%X\[ZtWaF-aBaoJ+T*a%KUA]qu)L-+mF]Fac^k7YiE/g_G6=]#:X!J2TO5!^m;a%((M7Q%o)s"2k&*?36[X#4`<B;5D7KZZX&&u@X<BlmFC:]V?[c\aW;PagF,]0U]R\uj5aH^@=+'MrbEnDA-"!s*KO=o`DX1PTADn6*C)*Zus!RoWV<#)Ab1ItaQ\@o<sT-HQ37Uac2iXlCUH52V(4ETdf/hP6rc[2Q)`XZs]@B[4kcdAL(g)/"l\.&dNgQ(G?-PpXCI<I(J-Za+\U#:DNWs0rt-d5ED"8s<BA-sXSeprC<G/6MDNMKg57aVYK7mYMkZ%55M.V`0P@U<e5?YH1hQd;Rj2cj6C/4$]WgsKN\:WE>9UI^-EKs]K(>M3_d*m02!]UB1>ouT'V4_S'mKe+f4*.?$LpeJ93Q]S$XE)aikQV%K`<s'5=rNNmf3]m*>>eBi9"h%8%puE]4WWn:>[`.Ff3J.PBSHq;``usN:=5D'7Xu_5#h4*/&]8T\4L2J;CE2ugj#20beL;-EO0)%0Z43<L=i-N.jQfk%jQY_SX-$QHqYZfAqGB*e[mDi!=L/0')Xe/s3?s"Z4q>H2njkfNE<PbV_?=lM"Fq#"l*gLB9e"Af0',(,X8:`sX<f1c#+7`c+I[H^\I5k&YpK2Rbo-UtO:WnNMSqji-5b%72<p8o`QnjUme_'BpdIBYUo":pI@pned[)!@`WgU(#XEWHG@!8qJc%Ynn7S"N.0XaWQoJ6%I7M]<Q<C?e+Rci:,]>0kMLb&D@0V=,+c-7'B(7KTkTU!(@E!15Y,smC8g2+YWSXT5B8$oE9>_T_*jLD6N\IHW[BrW71]9D$&TpNS<,e]ts<dkB3HsNF3;#?O-?@@g3=paX?;YfSa=??6o/F"6&~>endstream
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 17 0 R >>
 endobj
 17 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2314
->>
+<< /Length 186 >>
 stream
-Gb!#^?#SIU'Re<2\8U\'XGN`@8H\P1"D`ph6efiN;ZMHTBq'f-GnQ[T*W"Z;7G7N.XUd3:0Y"A4P</I/S4e`%%078P`4XDT!1-XZoecb:@CcU$3?ClO_=,jZJ'Q-L-`7H8BLF!$^-a(ciI0AFRc\F/L'XRV`S3<tTN_I5E6huBZ:$">=XLM/k:ljnI9=,-%3p8Xo&+E\f6(>A%f#I]pTSliY'KcVT>O-GR:1p5/4gX5\%jAIbK)\_N'_4IrS2Lb^*ng4Lp(<!Gg)>0NCmfnfPG&cS#gJt`N`A>naM=Ga?WF3R9],gOf<7cX#.(+fs"+aVTC55.'[=bF]2IU(<KGjP@^oU_#<]:V9Cg@dq#FY]?Dtu)mlX5U9'i-WEc+[_ZSssoL)Sa'Z0gA'rFICbR-*XE)^fJm-56,g'*?Fnqc'`G@8#-AA1h!`JBJ*^bXqsOb6u`"S==/$c#*G/%?7t>*O/pDe#VPQRktAU'Wj+FXC(^+d6sZa0TWO/$85#k;hY*6WM_Er%WNm[d-aB@l`.C&f?LGA@XG!"5?"?8N@E)*V_ol^'%`k==uHJP1&06N=<o^@]nap,I1pi$V$T/-&ABUN2mqaR?ZU)1En+;n@(bUa+o$.o>d746M^*HbunNDfmq*f-Oca]04O^W$darJ'9K^`+9M4Kkd$$D0Ig+`M?73u<8<Fi3H-SA?**YVJbV?D`=8d778SCf)L8,3/nqQc-VjRVY0tQ1-X`Mm,GP'Q,C6P6[&r+_gr9t_"0Z].9U7Y^TpRB7/JXQ]:@YDr!5pumF8WhJgR.o)@\[BYo+<JLX<sju_<:\*/.0Fs<YPZ+E%iFaMd\qlU_8tHcCB^&60Q/&cbj&\kZq<3pcA%eD32YD?uCUDI$cM@JMER`'8=Nk9n1qViKmkXa].BT5U`\>;fgqrLBX@dEqqu2H+&hZ!F19aQK$odH$:g@R_\YBX'i.1^7'GZm_kt7Y2G8l@:-daRNR&,3/`UQ'4T57[9<E75/;)G'J"9dm-^7FUb04RS7YBCKj0,S.$_m4'!R1DbF%anp,!V[\eRF%a9^1qTRGE4+h8>pgB5\D4<<uu\l-(>F0)2Q0(HL;H-@62[0VDs'hZWZ>R\Ik<n/Zj_"k45<lgEX?&=iDG/X13Kueh;%XBXh7Cn'%.I*l;`O#nYEj!@iLW-V-1.k4jjN."K`O%toUmhf'T#GaImK5WZ\Tbr)^hDUmE3H0.N!F[W@6L`E"@4t*Q(D$t&a>lRQ(D$tS45YfNd>HL+lC#E6p5aN3OFg.disH*LY$RP@6*_,oK8Tn3N\C<*oopg.qJ'l,NJDYGn3rU3EF>PnP>M".L,4q<7DT1!]]J54nZIp!9X43K`;.(5.<WVa+O9SXLP7U8B#.K*`S`JTqVFmgZ[;RdK*=;/=TA@dH%a*gq"qN[=iZ)D`.$qTfnW0!q#b_pkWGQ"d*^YY:f+a8OUbU.GCh\\t+RQ=TV$=F]#WScnCY8g8g-!qo:<FJ48m'1SF.In?HTF!un6t/IQWBOVe#T]i;&?Q4#f\SjRek3sXOl_>]sZpUi+P=U@r6Un+eKY*8QBbG<+)XlQ$0VC&B!e&'!Y`f"j3DT^!VNotS`60Q"YM1*f`F(FF[":Dp#b/-lu+d!rfOZ9,EM8L*M<!>LjN75.U>>&&+[#!ju^R`9UdVE[RHc*(s37Gfses=iWK);,O3Kqj6f7TU$Op-VqdW<<>.tq@$;Lo6sNSfY1!=O1N9)J;$SAR\'bKK8c8s65T,2sS8/K`p`dP/%%)m^u0]#(&.kd7_]<\ct7A!NPM7_!E%HV\6N^:K<uT!V**.Tq`K]f17@+8%%]"7Hm`RBK&bOqXN:@\VBWjZK>ZE%:D0[lArrA7D6CU+]H8/=>E6L7$T];[0*^oZ-cl<j#eb]@lm,O8FAnaN*,](@lGuErc"13*WmnQL1I'bu%^Fp)`7XaHT5ANmF!fA-%.Z_9"foduoH/_9>:r<i\nHAL<W:6d)V=2IIA*m(+!9\t-s^DJj(L9Zo)!=LC<dYf8]3qm]cBC(]VTK(JB<k9+3nm<+9WA;4a<_sg'7/E6;*[T3lLP0W3paR`QFan\NRiT]]2KlPr*_QiU#%NCX8NnZtT^!V1s(O%o'<ac3rZ*82klEa1DqpgMFZ1H7cfJ(WRNtZZ/k4C@HT-cCi:9$NOGed\5bMV>]mprp'=a!]$7b[f*";QooLNt'^:O`QbCREa(/`PG]$B7R"mZ$c^XdiEHG$DM"0qK;[Mo9cgb]1Oq,kdW_D9IS$YpKo%0PMFj4\!fue\CA<B.?<hJl55$^Dnj9m@F4akOf_Tiu+Bc#G%>6Gl~>endstream
-endobj
-18 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2261
->>
-stream
-Gatm=gN)%,&:O:Slq8^L.kr;o&XcBTP;mPDD)-)N[s?@/77%Vrh?&d^e?A<n.$9`I&VY=k=;2QV*$";K]6(j.O/)_%3ParrG^eV%_r,hINb<WVr=7[jT6reA[Nbld"VHY4Qj(4c6pZLPU"Iq*\N3"c:8\dJcWc*HX,ti%?EZAbAM/kMW*q-4<"pho$>R5G`0I:]%$j#Y)p&i5M_)#"=hst-6EKYllC+?Y!6Oj'Q6+gF@BF!9SAFk7\Ghm-J&KZCW'/`DF^1`u>Zn$?,\<:\PsUEhFKkjG>ZEIjCkeZn.:c3CE)DLFWa_t&"Jf/%l`%JSG<G9D3!(sY$rJCWPT.lKWb#>7\>g\e.Zo>XYJi(#`2Z)B;m((ZSAkmBr*,-hEuJ7UZ"ReYPQbu9=]Mu5_iTL!15&>/H.jP2[b$=gW,?W2JK)mKqHe%S9g1do4I.L&:R5i_jHV97gKg5>raK)T:f[+naU#toR46=+q[KAq#n6;I.CF/rAtbZ`[jJ7ZPf4$%4]<J\AL[4o.3fE#6gM.M)=tNI\o3p(*kLcfb\i?,J`@.m^Eum(?`#r<CV"n?)eY-71'35HlMDAL1#6)">E#AZH'V4KVFG_?MrHV^?1H@4KV:V]VPqZb=ej09NRT4HFEY5<VlUiK`0`4[2s^8Y%e,,<!&*+TfZ#!Co\ZA07[i7eT(?odTjrdb'Z-(X"WWgmT3+rucU&01J+&t<O$87[iFb*h2UNKc<ZILjI=.H0H4R)KV\KDu2?`_-Vr1;<Ha_F,n3FnUH]F4;H#hB).(!U#*uX>B#OR^>WS5<:i\D8fWW(Bm$)dD=1"sd*mP\$5mdhIIlnPj8BfQ(8.0H7k>rX'r1RPtd_LRVRmWd:.0AO7/jt(KE7/%i)@UQDTH$c8U+*]VQ5^<4\?i>C:]t?DMX+>"h;L"R0"3kpqGrft4E4j2k&*Hlei\1lI\nrs,_-nAn1`tYlgM2,7BP3l?Fh9)b#G0k1";@2(HhptDjkG:0cOP$VR;ddEq_0tLCHfc0B)W<f*]otY9?@j@g+pKtm87m$523n)3m>$`k!PGZ[)2Do'+;?$UY_TW*G'a*N7cDmq`@!7n?7h5R']O=lVIHYjhqM"rHIr3$!+KYh'"E>%kmQ2K25[X-eQ1N%gEMu4J@RkHp\JbM!TPPh2B-58_=E&4[IF&p6RN7YWmUr]b@YoY=[OJk`NLFXPGXpG<^9AO&)=P]p\oa.D$Z5R$P).3hTr_dCtW`P8)mYSH4JATN[\+$CK.I)/!&t(OW(F>c!>^2tXTRX&=fArVCKpi48"3/=-(s1.s>]\q($lKZbl:)MtkG&)B\<gG2YmH]WcEqBQaRW[f@=WpN.u^cJ?HClcX&W,*CX+QMHnYB?Lj#pRnR0e:Srg;P@jBJU:*)k#9@4^c#,>jtij;\?3*W\l:8*$V($D^ERq]FYru479ZiKGqHsMk(9F2Br4J9\W*$L^db*>;\8V+QA_M'Cd:,+:<P#/toVAkos/]^W]*OJTRCHPQgMpV8YF0^2XC7[SRDae_(Sk<oMP?5t(6tb42;ZF#&Kk8#HE4&pOGU33P*?(PL?Zfd(RS$$4o7/K'nC]%u1G+IT]PMeQsa32"FRR`>k_4CLO`M[b]=pgF\3p[@B*bhR7(.]m(n=.O8i^hfKd+&/6jNf64R/o*`9nMEU_,P+@N\/1;EFl33qia4mDDoBNmYA\LpMi@"Q>"A&h4`$n3#Zd=4]6H9nQBS0We2#3*I;b:H(@8+YfEQnQNI6/a/#EUk6;$[Bbs8C"2$0k!Q[!s/gJ^<?()Lg-$G;n>(`h@CeXA1dOTc/AAAqtCGP@^:]_8=d;,"mc0ESIuK32tic)C`3kjE.`Ug-Z!1d$0e]h.?Q;6RUG/#W&DaAbI96pkcMXMnp;V+ANN2)Gi=Fag,FN2_.MbGJ29T$Ou2Do#6XYsdb$7_+b[`8josU<b9NI25IJ]Ioe1IVO^ODY0J5E=^g65>6G%8#*M>c+Iq+B+dWVDXu.:WE[#>i?ah9;mud$jAdYp\4D@pL2[iGhphD3'1j6<rT6Hj(_!(l[l"M&:dtY@K^[jL]D!5"EWB5i>!Kt#)E;hQH_YoXNbdp:b;.75HHh$rIe\p/@1a-M8)ir30&"[EWAYP+BOlNs2N$h\)[;cYTnSIkm20J?a]h^2VPBJdYs@JM#Y_09_!$Q)YaAl48-N-#Np'<>&_Xt)l)Mo25#t!L+q;_jY5AU#@JTNElRA=qiQ:pmfDLKtibAMr9n6lm)a%Xh8j.!M_T@9S)"p5~>endstream
-endobj
-19 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2121
->>
-stream
-GatU4?#SIe&:F5UfTuY2@4@p=8QLF,\5(hG!(@!`5QSWia<c!!OiQ7>P4e9*HRHpB%Djl>i)o!Zbq3R?B:7*L5=tX@<CFU*l.p2Cact?[-0[Ccok4-.^A)l6*7%k`a,AJiQ-aP++"+,.$J48+3*B#>l&*ddc_d`W[rLL5m[9T3RF/U_&lVDc\:cF&k-M44X'0@U:TD_),<*U`.^!"PUA_cT9C&dgr`,'XKqJB3P:iK#R=rI2f1tA[f\Y]2g?U=hAUR4_W]8V1A]c*]G?CHD-f8c5B=im<B?D(6[;V;Ym9r]gfWHhujdg*Kh7ZAqGLPec3kp$r"8-b"&@GID0Y,J[;O79&?]VLp2Yl05g8Z0cJ3%MfdtWk<dq"tDhGY@OS?nn]H]Nf;aY.1_*bZq-JS;O(gl>LIR[kg3$O"ci$L5ZR>p#Z(4P,,?C=KW;[Al$b%'F<tm;OmYA8aPnrtt4a.N+&o++26H#Uq&^&3j^&b?84SA,=+2fEj6rYnQ!DnYgb&P/:>e#]s0HJNroq<K5t\*m!NFJ]Nm&LF(g5cCQ,jRkA<n,;1YO2&;AU;Q`4N"-qI)QKnL"]4<[Rq[PQ`^fJuhG<fS[ReO2HZB.>ZYs^_^1)h]]BQrK=AR!I#4k<2Z$?Eh&m'kR,jLOuqeN9.N3!X-5R>"m___-0Rpaij/-F"WLi]9jHBaY[5lEYJ)aU0N;h=a"%Dn[-ib4#BF*rTW0`H6[/iG98,iJ83eCsW!a"\tU?J?lTR=$iPf/0t>JCoch6<YFZK"8$W41cGY;:#kSmL-?L79Z:o4"MboQ6'Y-'e\MoQIr^\c#8(i4f')Hc)]3`.o4BY:i3YZ#>7]ZV:h9j7fYBnj`g1[D64K]6r/;J+.]Qrc^80K*djankMq*/[ec[&i<n6SKk`Se:gqsH]e"Q=EV)%t/18@+`#&>^+idHA4r`iiPkTR/*A>m.)C'[7H3[rO?X?g%pb9,J\eC1ht@Ch!o4&9f9KeaAI%E1\7X&Rm.<r?I+l.&U5j\MQG%o59V.[A!UUo\W454>Vc#;8ru!-GF']r3OHM42Fiin6QI]LV-U(INlk,n-2S=k<d;;MO1s<eM(lV[RP'PY<rjCPH@]oPD-L\ktq8,+XR]lXTAICoF6!hL)p17)+S4,q3X9^9H)5$A_R4>,128KqVLbXa;]r/0WK7g:BgI(\gg^-4X<*PfT36o^LZn)60[[mbg8A1aA,A$kb7.6m"%P')\kK7Rl!'[n.*5c(;=nT8V\f#dmPPq@[?acOp2[9-NZU_EmLn#GU<VTuVkK::Z</;H\_b/pO8#VN'.$fSK$rfd[<4_<DopE%%.#<)LHY!VDOmr^IeqmdrZ6k\NF^o"gYu(TJ4H;T)%bboFD[JolOA2W10s'=3h(dE)fuh76YUk[QB2oRK%C.X*KP=Usg(mN,==XgOEdQNu6>5Imr"76i7FHBQaFK_P)f+hK/@W$GZbg[J2R^ltHqpK`W/&O7B@,KsgHUrZ5^DNLj#gpVbZ37KsR*Cba+0\eAMN1?p:ANN%lBmMWrF.O^M1e"u>6:#Mc?Ar3>5F#SM@k9RI%)rGTPnFp2#5FbUkU6h"fH?Skc^;+./%8*2/M;e#[-fEj-Mf.'+16=V'+rCD=]G26[PUIF'=ku-;<+^:1,;)UU$m8EAKYr#^?U80*NIQ-L0W$E/-Eltg70rNjW$RUBXBH8>I3t,(?9KB^fkdG[n]T^6^,UO[sZ[n&&cqj,0^uMY`>k1EU^#>86HkmhluFo)N]5np:X"O?_[4$b_=J7N(rX^<q#QY$-!qr?Ud0YNpdkF77ZT7kj<qG3E10q]4WcEQMDdCXVI#9V@a?oklDi\jlkRB19F5,:Bn+2XY-"PeI\Sh\EBn`4f2H^n="Y#+@=NI./][IOY[cpj)4henZ`>gfh`j2iT!c@YGLZ`p>M*[PZK8V.fj9nMrOM\!"o!g.6TpDKCc4X1^Y]>YK,X,-I0rufQJ"BWPJ:_D8dQDcNc3J"0=#?KoF3+coAf)0Ms7M_m$:q!jC_g%*PTpl]%%9"NlF<4O1C_%:\@`4Ds6qP`GkCqU?7P#,*_%ak5C%i;'(eRul`.eE=86\ZMO)&T!`W$[_C+\qBoAIO?8CYEuC](]OQ+s#3R~>endstream
-endobj
-20 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2120
->>
-stream
-Gatm<9lo&I&A@sBm%FZr,H9[XBIPb)9]A*MRPmoXjlQq=66p</?i\Q2qs4+pUh0@s%E%GO@nJ#fICja9qj%9-nHo-nZm'h&VB=Y!'SNjM;@q/`>5q@\l_Dcr6,,/]B?;W."a$1aB#,s"iBCM<"fL<'?IA`hKrZ&O1&2EQ)=5U9['!d\U`ekpY^tgFnr'7n-Q@D!lb@-34kolJT9noaV[%D.rpiu<EG#H8bR^eV$R6rX@<1UC7]L3^^6OtbSY_lpbD_D(g/O6XE)(6b()^\%m#9dNA)2f9?'[6g,dL*(V/&p<^`+mqi\`LA-F:':\ft3H$Bj^/9Ypsi3hqU=4\Z:fe@+2o7^n@'>WsJ(i$-r4<`DdB8T-&Jbia%r6H!48+J21('65T8\jDm7TJM9JY.Wdc)JQ<t&#Vfu;D&mA.9G`a;5H'OOt^k)iJ,q)YJX,$_+<3m+mN<A]<?b"c6c5IdLuaL"ZEbCK!uc)C?;g"F\[p2A>s>5WXt1rcrJOUC$GQ^S9@feP]m3P030;@Md3473\&[^U^$`s.3l25E^o0$oGER0#0Zf-Y)p&H-GQ?S@Z0A)lnY[NA`,4\_pnd4UTlhh(!>%Yn0nET4Y"gcdFM$SN%$A5aBN);5gZ]qcTelEqqkLsO_+7_KUaBZip=>LS:Sk_ZLE)=k[83NVSL4Y,jVQjBbsWBeHS8Z8=US-%NAPsHItPA5".mm&!CuYEOWmG<&P3sq)[NSC2<rlB[YHKVCnU5af4-78_&W`7YtW>ZN9cd0u!$Jr.9)oo@qZ/8_r:c01WFbVkQ.Rc'HQ'&jK""qUYs)_SZT_F*JMJ_f7\t<r^]+,4B"#?!PV;%pp@&KZOGn&fmEi*l9OKhMMj)IC/7KZVl]R^@GkWJpg>-.dMOLHkc_]7Y<$]NjDW6a(QP!%!F3>IXNuFf3)<=3g6sg/\S2^-R@Nf"+UXJOhfl):=^;'VmS0Cs1(oF0XPOjRL/=KFZ)2&E?pi&<=3K9a5'nJmCjt)Z%FIL<Yi9j#.3]@\NGEB/K?CnNC8Oe`_0`Tl5b[%0=hYRk_X*RQ1#L[pOHVGJ<Y76\nE,LZ:-G*U7jMTUIrg;Mb\t@c0;f:[4lfhp=kpWaZRAX,T5hjLE+lfb7OtSh:\U$"E6bT7[N[eWu,6l<hdUn>:"Lj;GmTK+CYduN^0K^RbDa$O(8t,M./5/g`";YZHoNC\okRs/3jQ-(K9Y<%6V^X_Ek%=QQ"/*L'<qm-WnB:C').b\Q*N<benC1bgEP6eSRMHah?'b_X$k-+M/M>cjkK&<13K52lb8"gD>+O/J]5OWNt&(VGC7q0[Jo,1&"ZmPEjFQBF:"[LUX:J*DkK?-T4eHC3u&Z/4Hr=6Bqmd$%6O2cLBDX_3RHQ8T[!OIJ9aaY<=WT9;=E45`/$hA0aUqH],atkOe[op?on7bc@jVg$rAbi`8cuCQn(J)+ELpJHjZJg;s?];*6UM3,GF!V/%IQeEV&!k^BRW27-\DmIiqqL"*B/6m5(A.t)SfUBGIP[-Oa/!4]ktCb!DYS"j#GplH;lMrY*(e0f?rrW<l:Q"GTD.rGnr<gML>"Bp3Y5,.8_*'QW5IiW:6)VYbJOj:(an=1,,(;;lPW=M8(n0<VV1'u@:5FkM5??X*$jb,6>cDESa:TVED!#NL_3='Wo$urI+YE-AZj.EmbqAK\WgHSu`P=K[#$[]TAa668?V*Q+e=[OXZABl[OqEhW_*!]l4a0rEH@ea74_j0(+7N"W,*9#3?0\GM.H(HQ\@V"Et[,KZ7G4#^06JP:4f1hlCcZi?mi"tJ`/^9u.W,?S9/dDGP0ePd`q1/3"4Meh0dK9.PW3tT3FAG9XAR=!XPg"RM?D.s'DX.O?b>Y#!-YelT/7u9e(;mE&Wg(1u5&rmjL/oB&[at,9B9N6'aoU'c<Z<mR#I.=;8BVn\DW@Q_`aTM+;hGFuYdrh:AV>j2!P'$u`jW4<B59FLjNkM3Gu-="\/@\E]@iU^"dr[>,JVR15&f,oS0UWP+0^akFX"T]g3.e.#A)CLakZML!:qW4S5l@8`.7)4#f_%p"Z6p5"Q_l2YsR!dZEEl+!'n63og$-u,qlp%Gc\l=bk`i^8^#)^U\4("I,AKqn8r1)kT=D'Xk3~>endstream
+BT
+/F1 11 Tf
+50 742 Td
+(Pedregosa, F. et al. \(2011\) 'Scikit-learn: Machine Learning in Python', *Journal of) Tj
+0 -14 Td
+(Machine Learning Research*, 12, pp. 2825-2830.) Tj
+0 -14 Td
+ET
+endstream
 endobj
 xref
-0 21
+0 18
 0000000000 65535 f 
-0000000061 00000 n 
-0000000122 00000 n 
-0000000229 00000 n 
-0000000341 00000 n 
-0000000418 00000 n 
-0000000623 00000 n 
-0000000828 00000 n 
-0000001033 00000 n 
-0000001116 00000 n 
-0000001321 00000 n 
-0000001527 00000 n 
-0000001733 00000 n 
-0000001803 00000 n 
-0000002129 00000 n 
-0000002221 00000 n 
-0000004560 00000 n 
-0000006759 00000 n 
-0000009165 00000 n 
-0000011518 00000 n 
-0000013731 00000 n 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000157 00000 n 
+0000000227 00000 n 
+0000000353 00000 n 
+0000003387 00000 n 
+0000003513 00000 n 
+0000006734 00000 n 
+0000006860 00000 n 
+0000009655 00000 n 
+0000009783 00000 n 
+0000012903 00000 n 
+0000013031 00000 n 
+0000016243 00000 n 
+0000016371 00000 n 
+0000019179 00000 n 
+0000019307 00000 n 
 trailer
-<<
-/ID 
-[<94d337b75bf375739211d14852e61cee><94d337b75bf375739211d14852e61cee>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 13 0 R
-/Root 12 0 R
-/Size 21
->>
+<< /Size 18 /Root 1 0 R >>
 startxref
-15943
+19545
 %%EOF

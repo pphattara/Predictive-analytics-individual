@@ -61,12 +61,12 @@ This file follows the exact six headings from the coursework brief and maps each
   - failure slices + worst cases (`module3_failure_slices.csv`, `module3_worst_cases.csv`)
   - threshold stress testing (`module3_threshold_stress.csv`)
   - interpretability via permutation importance (`module3_permutation_importance.csv`)
-- Final test metrics at selected threshold 0.38:
-  - weighted F1=0.8637
-  - PR-AUC=0.8259
-  - ROC-AUC=0.9246
-  - recall-positive=0.7645
-  - calibration error=0.0134
+- Final test metrics at selected threshold 0.36:
+  - weighted F1=0.8622
+  - PR-AUC=0.8282
+  - ROC-AUC=0.9259
+  - recall-positive=0.7840
+  - calibration error=0.0139
 - Agent tooling expectation satisfied (explicit caught mistake):
   - corrected agent-led emphasis on raw accuracy by enforcing imbalance-aware metrics and threshold policy analysis.
 

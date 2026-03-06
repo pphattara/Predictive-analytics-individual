@@ -93,7 +93,7 @@ class TestPipelineSmoke(unittest.TestCase):
         )
 
     def test_hygiene_no_dsstore_or_temp_docx_locks(self) -> None:
-        self.assertFalse(any(ROOT.glob("**/.DS_Store")), "Found .DS_Store files in assignment_final")
+        self.assertFalse(any(ROOT.glob("**/.DS_Store")), "Found .DS_Store files in project root")
         self.assertFalse(any(OUT.glob("~$*.docx")), "Found Office lock files in outputs folder")
 
 

@@ -75,3 +75,11 @@ This document aligns our Iteration 1 analysis to the coursework brief sections d
 1. Final polished 2000-word narrative with citations and figure callouts.
 2. Pinned dependency file (`requirements.txt` or `environment.yml`) if required by marker expectations.
 3. Final proofreading against word-count and reference policy in the brief.
+
+## Canonical Final Metric Snapshot
+- Threshold: **0.3600**
+- Test weighted F1: **0.8622**
+- Test PR-AUC: **0.8282**
+- Test ROC-AUC: **0.9259**
+- Test recall (`>50K`): **0.7840**
+- Test calibration error (ECE): **0.0139**

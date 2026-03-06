@@ -66,3 +66,11 @@ This document starts **Iteration 4** by consolidating all Iteration 1 work under
 ## Iteration 4 Status
 - Step-heading fit and rubric-upgrade pass: **completed**.
 - Next immediate task: finalize submission package (PDF report, repository link, interaction-log evidence).
+
+## Canonical Final Metric Snapshot
+- Threshold: **0.3600**
+- Test weighted F1: **0.8622**
+- Test PR-AUC: **0.8282**
+- Test ROC-AUC: **0.9259**
+- Test recall (`>50K`): **0.7840**
+- Test calibration error (ECE): **0.0139**

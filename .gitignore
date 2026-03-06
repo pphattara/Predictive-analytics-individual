@@ -1,18 +1,8 @@
-# OS / editor
 .DS_Store
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
-
-# Secrets / local creds
+~$*.docx
 .kaggle/
 .env
 .env.*
-
-# Local temp artifacts
-~$*.docx
-.Rhistory
-
-# Python envs
-.venv/
-venv/

@@ -5,6 +5,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, RobustScaler
+
 
 @dataclass(frozen=True)
 class SplitConfig:
@@ -20,7 +25,47 @@ def build_preprocessor(dataset_name: str) -> Any:
 
     Implementations should be dataset-specific and fitted only on training data.
     """
-    raise NotImplementedError(f"Preprocessor not implemented for dataset: {dataset_name}")
+    if dataset_name != "adult_census_income":
+        raise NotImplementedError(f"Preprocessor not implemented for dataset: {dataset_name}")
+
+    numeric_features = [
+        "age",
+        "fnlwgt",
+        "education.num",
+        "capital.gain",
+        "capital.loss",
+        "hours.per.week",
+    ]
+    categorical_features = [
+        "workclass",
+        "education",
+        "marital.status",
+        "occupation",
+        "relationship",
+        "race",
+        "sex",
+        "native.country",
+    ]
+
+    numeric_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", RobustScaler()),
+        ]
+    )
+    categorical_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("encoder", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+
+    return ColumnTransformer(
+        transformers=[
+            ("numeric", numeric_pipeline, numeric_features),
+            ("categorical", categorical_pipeline, categorical_features),
+        ]
+    )
 
 
 def validate_transformed_splits(X_train: Any, X_val: Any, X_test: Any) -> None:
@@ -41,4 +86,3 @@ def validate_transformed_splits(X_train: Any, X_val: Any, X_test: Any) -> None:
 
     train_cols = X_train.shape[1]
     assert train_cols == X_val.shape[1] == X_test.shape[1], "Feature count mismatch across splits"
-
